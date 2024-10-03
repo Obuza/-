@@ -1,0 +1,276 @@
+@charset "UTF-8";
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e7c4c2;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2 {
+  color: #e27d60;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#auth-form, #reg-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+#auth-form input, #auth-form textarea, #auth-form select, #reg-form input, #reg-form textarea, #reg-form select {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #e27d60;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+#auth-form .error-message, #reg-form .error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  display: none;
+}
+#auth-form button, #reg-form button {
+  background-color: #e27d60;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+#auth-form button:hover, #reg-form button:hover {
+  background-color: #da5a35;
+}
+
+#task-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+#task-form input, #task-form textarea, #task-form select {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #e27d60;
+  border-radius: 5px;
+  font-size: 16px;
+}
+#task-form textarea {
+  height: 200px;
+}
+#task-form button {
+  background-color: #e27d60;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+#task-form button:hover {
+  background-color: #da5a35;
+}
+
+table {
+  width: 100%;
+  max-width: 1400px;
+  min-width: 850px;
+  min-height: 500px;
+  max-height: 800px;
+  margin: 20px auto;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+table th, table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+table th {
+  background-color: #3b9ecc;
+  color: white;
+}
+table td {
+  background-color: white;
+}
+table .task-title,
+table .task-description {
+  max-width: 300px;
+  white-space: normal;
+  overflow: hidden;
+  word-wrap: break-word;
+}
+table tr:hover {
+  background-color: #ddeef6;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  gap: 10px;
+}
+.filter-container input, .filter-container select {
+  padding: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  font-size: 14px;
+}
+.filter-container .button {
+  background-color: #41b3A3;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.3s ease;
+}
+.filter-container .button:hover {
+  background-color: #338e81;
+}
+.filter-container .button.active {
+  background-color: #f34343;
+  border-width: 3px;
+  box-shadow: inset 4px 6px 6px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9);
+}
+.filter-container #open_add_task_modal_btn {
+  background-color: #71c574;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+}
+.filter-container #open_add_task_modal_btn:hover {
+  background-color: #44a647;
+}
+
+button[name=logout] {
+  background-color: #e45985;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button[name=logout]:hover {
+  background-color: #dd2d65;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.pagination button {
+  background-color: #e8A87c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.pagination button:hover {
+  background-color: #e08b51;
+}
+.pagination button.active {
+  background-color: #3b9ecc;
+  transform: scale(1.4);
+}
+
+.task-id,
+.task-title,
+.task-description,
+.task-status {
+  padding: 15px;
+  text-align: left;
+}
+
+button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button.edit-button {
+  background-color: #71c574;
+  color: white;
+}
+button.update-button {
+  background-color: #3b9ecc;
+  color: white;
+}
+button.delete-button {
+  background-color: #e66e65;
+  color: white;
+}
+button.cancel-button {
+  background-color: #dab175;
+  color: white;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%;
+  max-width: 600px;
+  text-align: center;
+  position: relative;
+}
+
+.table-row-blur {
+  opacity: 0.5; /* Уменьшаем непрозрачность для полупрозрачности */
+  pointer-events: none;
+  border-color: #333;
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+button {
+  margin: 5px;
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 100px;
+  max-height: 300px;
+  resize: vertical;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}/*# sourceMappingURL=styles.css.map */
