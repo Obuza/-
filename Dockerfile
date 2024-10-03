@@ -1,7 +1,7 @@
-# Используем официальный образ PHP с Apache
+#официальный образ PHP с Apache
 FROM php:8.1-apache
 
-# Установка необходимых расширений и клиента MySQL
+# Установка расширений и клиента MySQL
 RUN apt-get update && apt-get install -y default-mysql-client \
     && docker-php-ext-install pdo pdo_mysql
 
@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y wget \
     && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-v0.6.1.tar.gz \
     && rm dockerize-linux-amd64-v0.6.1.tar.gz
 
-# Копируем файлы вашего проекта в контейнер
+# Копируем файлы проекта в контейнер
 COPY . /var/www/html/
 
 # Установка прав на директорию
@@ -20,5 +20,7 @@ RUN chown -R www-data:www-data /var/www/html/
 # Открываем порт 80
 EXPOSE 80
 
-# Команда, которая будет ожидать запуска MySQL и выполнит SQL-скрипт
-CMD ["sh", "-c", "dockerize -wait tcp://db:3306 -timeout 60s && mysql -h db -u obuza -p1234 task_manager < /var/www/html/sql/task_manager.sql && apache2-foreground"]
+COPY init_db.sh /usr/local/bin/init_db.sh
+RUN chmod +x /usr/local/bin/init_db.sh
+
+CMD ["sh", "/usr/local/bin/init_db.sh"]
