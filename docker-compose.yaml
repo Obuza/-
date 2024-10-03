@@ -20,7 +20,6 @@ services:
       MYSQL_PASSWORD: 1234
     volumes:
       - db_data:/var/lib/mysql
-      - /sql/task_manager.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "3306:3306"
 

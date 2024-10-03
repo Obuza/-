@@ -23,7 +23,7 @@ function registrarion() {
 
  // Проверка на допустимые символы
  const usernamePattern = /^[a-zA-Z0-9_]+$/;
- const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+ const passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*_?&])[A-Za-z\d@$!%*_?&]{8,}$/;
 
  if (!usernamePattern.test(username)) {
      document.getElementById('reg-username-error').textContent = 'Имя пользователя может содержать только буквы, цифры и подчеркивания.';
@@ -51,8 +51,11 @@ function registrarion() {
                 // Если всё ОК — перенаправляем на index.php
                 window.location.href = 'index.php';
             } else {
+                document.getElementById('reg-password-error').textContent = data.message;
+                document.getElementById('reg-password-error').style.display = 'block';
+                document.getElementById('reg-form').reset();
                 // Если ошибка — показываем сообщение
-                alert('Ошибка: ' + data.message);
+                
             }
         })
         .catch(error => {
