@@ -15,7 +15,7 @@
    docker-compose build
    docker-compose up
    ```
-#### 4. Откройте страницу http://localhost:8080/auth_page.php`
+#### 4. Откройте страницу http://localhost:8080/auth_page.php
 
    ### Для Windows
 
